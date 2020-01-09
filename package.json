@@ -1,0 +1,43 @@
+{
+  "author": {
+    "name": "Christian Heinrich"
+  },
+  "bin": {
+    "npm-recurser": "npm-recurser.js"
+  },
+  "bugs": {
+    "url": "https://github.com/w00zla/npm-recurser/issues"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "shelljs": "^0.7.8",
+    "yargs": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.5",
+    "@types/shelljs": "^0.8.6",
+    "@types/yargs": "^15.0.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  },
+  "description": "Recursively run `npm` in the current folder",
+  "homepage": "https://github.com/w00zla/npm-recurser#readme",
+  "keywords": [
+    "npm",
+    "recursive",
+    "install",
+    "audit",
+    "prune"
+  ],
+  "license": "ISC",
+  "main": "npm-recurser.js",
+  "name": "npm-recurser",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w00zla/npm-recurser.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}

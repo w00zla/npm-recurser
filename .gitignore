@@ -1,0 +1,63 @@
+# compiled output
+**/dist
+**/tmp
+
+# dependencies
+**/node_modules
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tests
+/coverage
+/.nyc_output
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+# the `!` negates the pattern; files excluded by the previous .vscode/* pattern will be included again
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# angular
+/.sass-cache
+/connect.lock
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# martin's customization
+ormconfig.*
+!server/ormconfig.js
+puppeteer-config.*
+
+# don't ignore sample files
+!*.sample.*
+
+# environment variables
+*.env
+*.local
+
+# Cucumber: The I take a screenshot
+features/screenshot.png
