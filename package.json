@@ -1,7 +1,5 @@
 {
-  "author": {
-    "name": "Christian Heinrich"
-  },
+  "author": "Christian Heinrich",
   "bin": {
     "npm-recurser": "npm-recurser.js"
   },
@@ -31,7 +29,7 @@
   ],
   "license": "ISC",
   "main": "npm-recurser.js",
-  "name": "npm-recurser",
+  "name": "@w00zla/npm-recurser",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/w00zla/npm-recurser.git"
