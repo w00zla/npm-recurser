@@ -7,14 +7,12 @@
     "url": "https://github.com/w00zla/npm-recurser/issues"
   },
   "dependencies": {
-    "colors": "^1.4.0",
-    "shelljs": "^0.7.8",
-    "yargs": "^9.0.1"
+    "chalk": "^3.0.0",
+    "shelljs": "^0.8.3"
   },
   "devDependencies": {
     "@types/node": "^13.1.5",
     "@types/shelljs": "^0.8.6",
-    "@types/yargs": "^15.0.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3"
   },
@@ -23,13 +21,11 @@
   "keywords": [
     "npm",
     "recursive",
-    "install",
-    "audit",
-    "prune"
+    "command"
   ],
   "license": "ISC",
   "main": "npm-recurser.js",
-  "name": "@w00zla/npm-recurser",
+  "name": "npm-recurser",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/w00zla/npm-recurser.git"

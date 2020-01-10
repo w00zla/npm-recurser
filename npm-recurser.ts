@@ -2,8 +2,7 @@
 
 import path from 'path';
 import shell from 'shelljs';
-import yargs from 'yargs';
-import colors from 'colors';
+import chalk from 'chalk';
 
 function packageJsonLocations(dirname: string): string[] {
   return shell
@@ -16,14 +15,13 @@ function packageJsonLocations(dirname: string): string[] {
     .map(fname => path.dirname(fname));
 }
 
-function npm(directoryName: string): { directoryName: string; exitCode: number } {
-  let command = 'npm';
-
-  if (yargs.argv.cmd) command += ' ' + yargs.argv.cmd;
-  if (yargs.argv.opt) command += ' ' + yargs.argv.opt;
+function npm(directoryName: string, cmd: string, opt?: string): { directoryName: string; exitCode: number } {
+  
+  let command = 'npm' + ' ' + cmd;
+  if (opt) command += ' ' + opt;
 
   console.log(
-    colors.blue.bold(
+    chalk.blue.bold(
       `Current npm path: ${directoryName}/package.json`,
     ),
   );
@@ -43,14 +41,26 @@ function filterRoot(directoryName: string): boolean {
 }
 
 (function(): void {
+  var myArgs = process.argv.slice(2);
+  if (!myArgs || myArgs.length == 0) return;
+
+  const skipRoot = myArgs[0] === '--skipRoot';
+
+  const cmd = skipRoot ? myArgs[1] : myArgs[0];
+  if (!cmd) return;
+
+  const opt = skipRoot ? myArgs[2] : myArgs[1];
+
+  console.log(chalk.yellow(`Executing npm command "${cmd} ${(opt ? opt : '')}"`));
+
   const exitCode = packageJsonLocations(process.cwd())
-    .filter(val => (yargs.argv.skipRoot ? filterRoot : val))
-    .map(npm)
+    .filter(dir => (skipRoot ? filterRoot : dir))
+    .map((dir) => npm(dir, cmd, opt))
     .reduce(
       (code, result) => (result.exitCode > code ? result.exitCode : code),
       0,
     );
 
-  console.log(colors.green.bold('End of execution'));
+  console.log(chalk.green.bold('End of execution'));
   process.exit(exitCode);
 })();
