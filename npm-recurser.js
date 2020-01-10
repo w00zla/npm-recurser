@@ -39,7 +39,7 @@ function filterRoot(directoryName) {
     if (!cmd)
         return;
     const opt = skipRoot ? myArgs[2] : myArgs[1];
-    console.log(chalk_1.default.yellow(`Executing npm command "${cmd} ${(opt ? opt : '')}"`));
+    console.log(chalk_1.default.yellow(`Executing npm command "${cmd}${(opt ? ' ' + opt : '')}"...`));
     const exitCode = packageJsonLocations(process.cwd())
         .filter(dir => (skipRoot ? filterRoot : dir))
         .map((dir) => npm(dir, cmd, opt))
